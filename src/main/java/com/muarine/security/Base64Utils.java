@@ -8,7 +8,8 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import com.sun.org.apache.xml.internal.security.utils.Base64;
+import org.apache.commons.codec.binary.Base64;
+
 /**
  * 
  * Base64Utils.
@@ -17,7 +18,6 @@ import com.sun.org.apache.xml.internal.security.utils.Base64;
  * @date 2015年7月21日
  * @since 2.0
  */
-@SuppressWarnings("restriction")
 public class Base64Utils {
 
     /**
@@ -35,7 +35,7 @@ public class Base64Utils {
      * @throws Exception
      */
     public static byte[] decode(String base64) throws Exception {
-        return Base64.decode(base64.getBytes());
+        return new Base64().decode(base64.getBytes());
     }
     
     /**
@@ -48,7 +48,7 @@ public class Base64Utils {
      * @throws Exception
      */
     public static String encode(byte[] bytes) throws Exception {
-        return new String(Base64.encode(bytes));
+        return new String(new Base64().encode(bytes));
     }
     
     /**

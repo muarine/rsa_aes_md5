@@ -27,6 +27,8 @@ import java.util.Map;
 import java.util.Random;
 
 import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.IvParameterSpec;
 
 /** 
  * @ClassName: RSAUtils 
@@ -52,7 +54,7 @@ public class RSAUtils {
 	public static final String PUBLIC_KEY = "RSAPublicKey";//公钥
 	public static final String PRIVATE_KEY = "RSAPrivateKey";//私钥
 	
-/*	public static void main(String[] args) throws Exception{
+	public static void main(String[] args) throws Exception{
 		
 		Map<String, Object> map = RSAUtils.initKey();
 		String publicKey = RSAUtils.getPublicKey(map);
@@ -98,7 +100,7 @@ public class RSAUtils {
 		System.out.println("AES iv(RSA密文):" + toHexString(RSAUtils.encryptByPublicKey(iv.getBytes(), publicKey)));
 //		System.out.println("AES byte iv:" + new String(ivParameterSpec.getIV()));
 		
-	}*/
+	}
 	
 	
 	/**

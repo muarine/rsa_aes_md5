@@ -14,7 +14,7 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-import org.bouncycastle.util.encoders.Base64;
+import org.apache.commons.codec.binary.Base64;
 
 
 public enum AESUtil {
@@ -121,7 +121,7 @@ public enum AESUtil {
 		try {
 			Cipher cipher = Cipher.getInstance(CIPHER_ALGORITHM);
 			cipher.init(Cipher.DECRYPT_MODE, k, iv);
-			decrypted = new String(cipher.doFinal(Base64.decode(src)));
+			decrypted = new String(cipher.doFinal(new Base64().decode(src)));
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

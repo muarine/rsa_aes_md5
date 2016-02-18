@@ -2,11 +2,10 @@ package com.muarine.security;
 
 import java.security.MessageDigest;
 
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
+import org.apache.commons.codec.binary.Base64;
+
 
  
-@SuppressWarnings("restriction")
 public class Coder {
      
     public static final String KEY_SHA="SHA";
@@ -19,7 +18,7 @@ public class Coder {
      * @throws Exception
      */
 	public static byte[] decryptBASE64(String key) throws Exception{
-        return (new BASE64Decoder()).decodeBuffer(key);
+        return Base64.decodeBase64(key);
     }
      
     /**
@@ -29,7 +28,7 @@ public class Coder {
      * @throws Exception
      */
     public static String encryptBASE64(byte[] key)throws Exception{
-        return (new BASE64Encoder()).encodeBuffer(key);
+        return Base64.encodeBase64String(key);
     }
      
     /**
